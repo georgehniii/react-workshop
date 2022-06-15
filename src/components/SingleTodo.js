@@ -3,15 +3,17 @@ import React from 'react'
 class SingleTodo extends React.Component {
     render() {
         console.log("inSingletodo");
-        const changeSingleState = (e) => {
-            console.log(this);
-            console.log(e);
+        const goBack = () => {
+            console.log("going back");
+            console.log(this.props);
+            this.props.changeSingleState();
         }
 
         return(
-            //<h1 className="todoItem" id={this.props.elem.id} onClick={changeSingleState}>{this.props.elem.title}</h1>
-            // <h1 className="todoItem" onClick={changeSingleState}>{this.props.elem.title}This is single item</h1>
-            <h1 className="todoItem" onClick={changeSingleState}>{this}</h1>
+            <>
+                <h1 className="todoItem" >{this.props.singleTodo.title}</h1>
+                <button type="button" className="backButton" onClick={goBack}>{"Back"}</button>
+            </>
         )
     }
 }

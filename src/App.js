@@ -61,8 +61,8 @@ class App extends React.Component {
       .then((response) => response.json())
       .then((data) => this.setState({singleTodo: data}))
     }
-    const changeSingleState = (e) => {
-      console.log(e);
+    const changeSingleState = () => {
+      this.setState({singleTodo: null})
     }
 
     if(this.state.loading) {
