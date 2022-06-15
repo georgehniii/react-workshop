@@ -1,6 +1,7 @@
 import React from 'react'
 import Loading from './components/Loading'
 import Todos from './components/Todos'
+import SingleTodo from './components/SingleTodo'
 
 class App extends React.Component {
 
@@ -60,6 +61,9 @@ class App extends React.Component {
       .then((response) => response.json())
       .then((data) => this.setState({singleTodo: data}))
     }
+    const changeSingleState = (e) => {
+      console.log(e);
+    }
 
     if(this.state.loading) {
       return (
@@ -68,7 +72,8 @@ class App extends React.Component {
     }
     
     return (
-      <Todos todos={this.state.todos} setSingleTodo={setSingleTodo} />
+      !this.state.singleTodo ? <Todos todos={this.state.todos} setSingleTodo={setSingleTodo} />
+      : <SingleTodo singleTodo={this.state.singleTodo} changeSingleState={changeSingleState}/>
     )
   }
 }

@@ -4,7 +4,9 @@ class TodoItem extends React.Component {
     render() {
         
         const handleSetSingleTodo = (e) => {
-            this.props.setSingleTodo(e) 
+            this.props.setSingleTodo(e); 
+            //console.log(this.props);
+            //console.log(e);
         }
 
         return(
